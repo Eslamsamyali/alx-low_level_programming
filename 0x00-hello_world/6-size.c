@@ -3,17 +3,17 @@
 /**
  * main - Entry point
  *
- * Description: using sizeof print the size of various typs.
+ * Description: using sizeof to print the size of various typs.
  *
- * Return Always 0(Success)
+ * Return: Always 0 (success)
 */
 
 int main(void)
 {
-printf("Size of a cher: %lu byte(s)\n".sizeof(cher));
-printf("Size of an int: %lu byte(s)\n".sizeof(int));
-printf("Size of a long int: %lu byte(s)\n".sizeof(long int));
-printf("Size of a long long int: %lu byte(s)\n".sizeof(long long int));
-printf("Size of a float: %lu byte(s)\n".sizeof(float));
+printf("Size of a cher: %lu byte(s)\n". sizeof(char));
+printf("Size of an int: %lu byte(s)\n". sizeof(int));
+printf("Size of a long int: %lu byte(s)\n". sizeof(long int));
+printf("Size of a long long int: %lu byte(s)\n". sizeof(long long int));
+printf("Size of a float: %lu byte(s)\n". sizeof(float));
 return (0);
 }
