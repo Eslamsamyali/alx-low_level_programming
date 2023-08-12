@@ -12,7 +12,7 @@ int main(void)
 {
 	int dight = 48 /*48; decimal rep of 0*/
 
-	;while (dight <= 102) /*102; decimal rep of f*/
+	; while (dight <= 102) /*102; decimal rep of f*/
 	{
 		putchar(dight);
 
