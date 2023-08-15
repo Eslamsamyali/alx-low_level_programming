@@ -1,4 +1,4 @@
-#include "main"
+#include "main.h"
 
 /**
  * jact_bauer- prints every minute of the day
