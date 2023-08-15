@@ -6,13 +6,13 @@
  *
  * Desccription: function that checks for lowercase character.
  *
- * @C: check input of function
+ * @c: check input of function
  *
  * Return: returns 1 if `c` is lowercase
  * otherwise always 0 (Success)
 */
 
-int _islower(int C)
+int _islower(int c)
 {
 	if (c >= 97 && c <= 122)
 		return (1);
