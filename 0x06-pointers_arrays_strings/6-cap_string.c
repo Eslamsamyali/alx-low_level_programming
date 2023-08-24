@@ -21,7 +21,7 @@ char *cap_string(char *s)
 		}
 		else
 		{
-			for (j = 0; sep[j] != '\0'; j)
+			for (j = 0; sep[j] != '\0'; j++)
 				if (s[i - 1] == sep[j])
 				{
 					if (s[i] >= 'a' && s[i] <= 'z')
@@ -31,3 +31,4 @@ char *cap_string(char *s)
 	}
 	return (s);
 }
+
