@@ -17,6 +17,7 @@ void print_number(int n)
 	}
 	div = 1;
 	i = n;
+
 	while (i > 9)
 	{
 		i /= 10;
