@@ -29,5 +29,4 @@ void print_number(int n)
 		n -= j * div;
 		div /= 10;
 	}
-	return (s);
 }
