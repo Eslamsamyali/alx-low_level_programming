@@ -6,7 +6,7 @@
  * @argv: array of argument values
  * Return: 0 on success
  */
-int main(int argc, char *argv[])
+int main(int argc, char *argv[] __attribute__((unused)))
 {
 	/* declare a variable to store the number of user arguments */
 	int user_args;
