@@ -1,59 +1,50 @@
 #include "main.h"
+#include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
-
 /**
- * _realloc - reallocates a memory block using malloc and free
- * @ptr: pointer to the memory previously allocated
- * @old_size: size of the allocated space for ptr
- * @new_size: size of the new memory block
- * Return: pointer to the new memory block
- * if new_size > old_size, the “added” memory should be set to 0
- * if new_size == old_size do not do anything and return ptr
- * if ptr is NULL, then the call is equivalent to malloc(new_size)
- * if new_size is equal to zero, and ptr is not NULL,
- * then the call is equivalent to free(ptr) and return NULL
- * if malloc fails, return NULL
+ * _realloc - Reallocates a memory block using malloc and free
+ * @ptr: Pointer to the previously allocated memory
+ * @old_size: Size of the old memory block in bytes
+ * @new_size: New size of the memory block in bytes
+ *
+ * Return: Pointer to the reallocated memory block
+ * If new_size == old_size, return ptr
+ * If new_size is zero and ptr is not NULL,
+ * free(ptr) and return NULL
+ * If malloc fails, return NULL
  */
 void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
 {
-	void *p; /* pointer to the new memory block */
-	unsigned int min; /* minimum size between old and new */
+	void *new_ptr;
+	unsigned int i;
 
-	/* if new_size == old_size do not do anything and return ptr */
 	if (new_size == old_size)
 		return (ptr);
 
-	/* if ptr is NULL, then the call is equivalent to malloc(new_size) */
 	if (ptr == NULL)
-		return (malloc(new_size));
+	{
+		new_ptr = malloc(new_size);
+		if (new_ptr == NULL)
+			return (NULL);
+		return (new_ptr);
+	}
 
-	if (new_size == 0 && ptr != NULL)
+	if (new_size == 0)
 	{
 		free(ptr);
 		return (NULL);
 	}
 
-	/* allocate memory for the new block using malloc */
-	p = malloc(new_size);
-
-	/* check if malloc failed */
-	if (p == NULL)
+	new_ptr = malloc(new_size);
+	if (new_ptr == NULL)
 		return (NULL);
 
-	/* get the minimum size between old and new */
-	min = (old_size < new_size) ? old_size : new_size;
-
-	/* copy the content of the old block to the new block using memcpy */
-	memcpy(p, ptr, min);
-
-	/* if new_size > old_size, set the “added” memory to 0 using memset */
 	if (new_size > old_size)
-		memset(p + min, 0, new_size - min);
+		new_size = old_size;
 
-	/* free the old block using free */
+	for (i = 0; i < new_size; i++)
+		((char *)new_ptr)[i] = ((char *)ptr)[i];
+
 	free(ptr);
-
-	/* return the pointer to the new block */
-	return (p);
+	return (new_ptr);
 }
