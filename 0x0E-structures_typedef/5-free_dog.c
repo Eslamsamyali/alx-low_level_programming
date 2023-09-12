@@ -1,4 +1,5 @@
 #include "dog.h"
+#include <stdlib.h>
 /**
  * free_dog - Frees the memory allocated for variables of type struct dog.
  * @d: A pointer to the variable to be freed.
